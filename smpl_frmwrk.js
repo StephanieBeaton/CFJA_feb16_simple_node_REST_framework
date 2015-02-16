@@ -6,7 +6,12 @@ var _listen = require('./lib/smpl_frmwrk_listen');
 var _addResources = require('./lib/add_resources');
 
 var routes = {
-  "notes": true
+  "notes|POST": function (req, res) {
+    //console.dir(res);
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Hello World!');
+    res.end();
+  }
 };
 
 function smplFrmwrk() {
@@ -16,9 +21,9 @@ function smplFrmwrk() {
      return _listen(port, callback, routes);
   };
 
-  this.addResource = function (path){
+  this.addResource = function (path, httpVerb, callback){
     console.log("inside smplFrmwrk.addResource");
-    _addResources(path, routes);
+    _addResources(path, httpVerb, callback, routes);
   };
 
 }

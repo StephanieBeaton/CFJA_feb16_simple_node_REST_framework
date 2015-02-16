@@ -1,0 +1,39 @@
+    //====================================
+    // /resource POST ----> create resource
+    //  if a resource already exists in POST throw an error
+    //
+    // superagent localhost:3000/monkeys POST '{"name": "george", "sparkles" : "125"}'
+    //
+    //====================================
+
+    //====================================
+    // /resource GET ----> id
+    //
+    // superagent localhost:3000/monkeys/2 GET
+    //
+    //====================================
+
+    //====================================
+    // /resource/:id  PUT ----> replace resource
+    //
+    // superagent localhost:3000/notes/2 PUT '{"id": 2, "name": "fred", "sparkles" : "999"}'
+    //
+    //====================================
+
+    //====================================
+    // /resource/:id  PATCH ----> update
+    //                 only the specified fields of the entity
+    //
+    // superagent localhost:3000/notes/2 PATCH '{"id": 2, "name": "lucy"}'
+    //
+    //
+    //====================================
+
+    //====================================
+    // /resource/:id  DELETE ----> delete
+    //
+    //  superagent localhost:3000/notes/2 DELETE
+    //
+    //====================================
+
+

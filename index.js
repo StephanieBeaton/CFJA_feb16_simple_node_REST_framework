@@ -33,11 +33,40 @@ Tests: 5pts
 
 'use strict';
 
+var postCallback = require('./lib/post_callback'),
+    getCallback  = require('./lib/get_callback'),
+    putCallback  = require('./lib/put_callback'),
+    patchCallback  = require('./lib/patch_callback'),
+    deleteCallback  = require('./lib/delete_callback');
+
 var smplFrmwrk = require('./smpl_frmwrk.js');
 
-var app = smplFrmwrk();  // constructor
+var app = smplFrmwrk();
 
-//app.addResource("monkeys");
+/*
+app.addResource("monkeys", "POST", function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Hello World!');
+    res.end();
+});
+*/
+app.addResource("monkeys", "POST", postCallback);
+
+/*
+app.addResource("giraffes", "GET", function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Hello World!');
+    res.end();
+});
+*/
+
+app.addResource("monkeys", "GET", getCallback);
+
+app.addResource("monkeys", "PUT", putCallback);
+
+app.addResource("monkeys", "PATCH", patchCallback);
+
+app.addResource("monkeys", "DELETE", deleteCallback);
 
 var server = app.listen(3000, function () {
   console.log("inside callback function of app.listen");
@@ -46,5 +75,6 @@ var server = app.listen(3000, function () {
 if (server) {
   console.log("server created in index.js");
 };
+
 
 //console.dir(server);
