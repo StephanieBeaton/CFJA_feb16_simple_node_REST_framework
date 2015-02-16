@@ -19,6 +19,9 @@ describe('simple put request', function() {
     };
 
     console.dir(expected_results);
+         chai.request('localhost:3000')
+            .del('/notes/5')
+            .end(function(err, res) {
 
     chai.request('localhost:3000')
       .post('/notes/4')
