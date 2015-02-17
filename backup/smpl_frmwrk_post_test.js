@@ -13,17 +13,17 @@ describe('simple post request', function() {
   it('responds to a post request', function(done) {
 
     var expected_results = {
-      "id": "2",
       "name": "george",
       "sparkles": "125",
-      "msg": "this was added on the server"
+      "id": 2,
+      "msg": "this was added on the server",
     };
 
     console.dir(expected_results);
 
     chai.request('localhost:3000')
-      .post('/notes/2')
-      .send({"id": 2, "name": "george", "sparkles" : "125"})
+      .post('/monkeys')
+      .send({"name": "george", "sparkles" : "125"})
       .end(function(err, res) {
         console.dir(res.body);
         expect(err).to.eql(null);
