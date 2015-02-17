@@ -74,7 +74,7 @@ var server = app.listen(3000, function () {
 
 if (server) {
   console.log("server created in index.js");
-};
+}
 
 
 //console.dir(server);
